@@ -1,0 +1,298 @@
+﻿Program.Sub.Preflight.Start
+v.Global.sSerialNumber.Declare(String)
+v.Global.sJob.Declare(String)
+v.Global.sSuffix.Declare(String)
+v.Global.bUseFormB.Declare(Boolean)
+v.Global.sQty.Declare(String)
+Program.Sub.Preflight.End
+'LHD EQUIPMENT INC
+'Quote 12834
+'script attached to hook#15850 
+'	NamLe, Dec 2021
+
+'Allow user Re-print the main program 
+
+Program.Sub.Main.Start
+
+'gather list of WOs
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sTemp.Declare(String)
+	v.Local.sJob.Declare(String)
+	
+	v.Local.sSQL.Set("Select JOB, SUFFIX from GCG_INS_HEADERB")
+
+	f.Intrinsic.UI.SetBrowserHotTypeAhead(true)
+	
+	f.ODBC.Connection!Con.OpenCompanyConnection
+		f.Intrinsic.UI.Browser("JOB", "con", v.Local.sSQL, "JOB*!*SUFFIX", "100*!*50", V.Local.sRet)
+	
+	f.Intrinsic.Control.If(V.Local.sRet, <>, "***CANCEL***")
+		'Job, Suffix
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		v.Global.sJob.Set(v.Local.sRet(0))
+		v.Global.sSuffix.Set(v.Local.sRet(1))
+		
+		'bUserFormB
+		f.Intrinsic.String.Build("select RTRIM(PART) PART from V_JOB_DETAIL where JOB='{0}' and SUFFIX='{1}' and RTRIM(PART)='{2}'", v.Global.sJob, v.Global.sSuffix, "11922", v.Local.sSQL)
+		f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+		f.Intrinsic.Control.If(v.Ambient.ExecuteAndReturnEOF,=,False)
+			v.Global.bUseFormB.Set(True)
+		f.Intrinsic.Control.Else
+			v.Global.bUseFormB.Set(False)
+		f.Intrinsic.Control.EndIf
+		
+		'Qty
+		f.Intrinsic.String.Build("select QTY_ORDER from V_JOB_HEADER where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+		f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+			v.Global.sQty.Set(v.Local.sRet)
+		f.Intrinsic.Control.EndIf
+		
+		'Serials
+		f.Intrinsic.String.Build("select RTRIM(SERIAL_NUMBER) SERIAL from GCG_APPLY_SERIAL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+		f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+			f.Intrinsic.String.Replace(v.Local.sRet,"#$#", ",", v.Local.sRet)
+			v.Global.sSerialNumber.Set(v.Local.sRet)
+		f.Intrinsic.Control.EndIf
+		
+		'test
+'		v.Global.bUseFormB.Set(True)
+		
+		'Print	
+		f.Intrinsic.Control.CallSub(cmdPrint_Click)
+		
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!Con.Close
+	
+	f.Intrinsic.Control.End
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.Main.End
+
+Program.Sub.cmdPrint_Click.Start
+f.Intrinsic.Control.Try
+
+	v.Local.sFile.Declare(String)
+	v.Local.sFileSave.Declare(String)
+	v.Local.sFields.Declare(String)
+	v.Local.sFieldVals.Declare(String)
+	v.Local.sFileCopy.Declare(String)
+	v.Local.sHeader.Declare(String)
+	v.Local.sDEVandM.Declare(String)
+	v.Local.sEMPandD.Declare(String)
+	v.Local.sInstallInstr.Declare(String)
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.iCounter.Declare(Long)
+	
+	f.Intrinsic.Control.If(v.Global.sSerialNumber,=,"")
+		f.Intrinsic.UI.Msgbox("Please Select and Apply at least 01 Serial Number", "Missing Serial Number")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Split(v.Global.sSerialNumber,",", v.Global.sSerialNumber)
+	
+	f.Intrinsic.Control.For(v.Local.iCounter, 0, v.Global.sSerialNumber.UBound, 1)
+		
+		'form check
+		f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+			v.Local.sFields.Set("DATE*!*WO*!*REV*!*ENG*!*BENCH*!*NOTES*!*ITEM_DESC*!*CUSTOMER*!*SERIAL*!*QTY*!*T4DEV*!*T4M*!*T6DEV*!*T6M*!*T7DEV*!*T7M*!*T8DEV*!*T8M*!*T9DEV*!*T9M*!*T10DEV*!*T10M*!*INS1*!*INS2*!*INS3*!*INS4*!*INS5*!*INS6*!*INS7*!*INS8*!*INS9*!*INS10*!*INS11*!*INS12*!*INS13*!*INS14*!*INS15*!*INS16*!*T1EMP*!*T1DATE*!*T2EMP*!*T2DATE*!*T3EMP*!*T3DATE*!*T4EMP*!*T4DATE*!*T5EMP*!*T5DATE*!*T6EMP*!*T6DATE*!*T7EMP*!*T7DATE*!*T8EMP*!*T8DATE*!*T9EMP*!*T9DATE*!*T10EMP*!*T10DATE*!*T11EMP*!*T11DATE*!*T12EMP*!*T12DATE*!*T13EMP*!*T13DATE*!*T14EMP*!*T14DATE*!*T15EMP*!*T15DATE*!*T16EMP*!*T16DATE*!*T17EMP*!*T17DATE*!*T18EMP*!*T18DATE*!*T19EMP*!*T19DATE*!*T20EMP*!*T20DATE")
+			
+			'header fields
+			f.Intrinsic.String.Build("select top 1 A.JOB+'-'+A.SUFFIX WO, RTRIM(I2.TEXT_INFO2) REV, A.INSTALL, RTRIM(A.BENCH) BENCH, RTRIM(A.NOTES) NOTES, RTRIM(H.PART)+'/'+ RTRIM(I.DESCRIPTION) ITEM_DESC, C.NAME_CUSTOMER from GCG_INS_HEADERB A left join V_JOB_HEADER H on A.JOB = H.JOB and A.SUFFIX = H.SUFFIX left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where A.JOB='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sHeader)
+			
+			'SER_MES_DEV and MEASURE
+			f.Intrinsic.String.Build("select RTRIM(SER_MES_DEV), RTRIM(ACTUAL_MEASURE) from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}' and TASKID in ('04', '06', '07', '08', '09', '10') order by TASKID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sDEVandM)
+			f.Intrinsic.String.Replace(v.Local.sDEVandM, "#$#", "*!*", v.Local.sDEVandM)
+			
+			'Install Instruct
+			f.Intrinsic.String.Build("select EMPID from GCG_INS_INSTRB where JOB='{0}' and SUFFIX='{1}' order by TASK", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sInstallInstr)
+			f.Intrinsic.String.Replace(v.Local.sInstallInstr, "#$#", "*!*", v.Local.sInstallInstr)
+			
+			'EMP and Date
+			f.Intrinsic.String.Build("select EMPID, cast(DAY(INSP_DATE) as CHAR(2)) + '-'+ cast(MONTH(INSP_DATE) as CHAR(2)) + '-'+ cast(YEAR(INSP_DATE) as CHAR(4)) as INSP_DATE from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sEMPandD)
+			f.Intrinsic.String.Replace(v.Local.sEMPandD, "#$#", "*!*", v.Local.sEMPandD)
+			
+			'concat
+			f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}*!*{6}", v.Ambient.Now.FormatMM/DD/YYYY, v.Local.sHeader, v.Global.sSerialNumber(v.Local.iCounter), v.global.sQty, v.Local.sDEVandM, v.Local.sInstallInstr, v.Local.sEMPandD, v.Local.sFieldVals)
+			
+			'file names
+			f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11640B.pdf", v.Local.sFile)
+			f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.iCounter, v.Caller.FilesDir, "6552\output\11640B",v.Local.sFileSave)
+			
+			'print
+			Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+			Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+			Function.Automation.PDF.Close("MyPDF2")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+			
+			'print 11922
+			f.Intrinsic.Control.CallSub(cmdPrint22_Click, "argSerial", v.Global.sSerialNumber(v.Local.iCounter))
+			
+		'use default QF
+		f.Intrinsic.Control.Else
+			v.Local.sFields.Set("DATE*!*WO*!*REV*!*ENG*!*BENCH*!*NOTES*!*ITEM_DESC*!*CUSTOMER*!*SERIAL*!*QTY*!*T4DEV*!*T4M*!*T6DEV*!*T6M*!*T7DEV*!*T7M*!*T8DEV*!*T8M*!*T9DEV*!*T9M*!*T10DEV*!*T10M*!*T1EMP*!*T1DATE*!*T2EMP*!*T2DATE*!*T3EMP*!*T3DATE*!*T4EMP*!*T4DATE*!*T5EMP*!*T5DATE*!*T6EMP*!*T6DATE*!*T7EMP*!*T7DATE*!*T8EMP*!*T8DATE*!*T9EMP*!*T9DATE*!*T10EMP*!*T10DATE*!*T11EMP*!*T11DATE*!*T12EMP*!*T12DATE*!*T13EMP*!*T13DATE*!*T14EMP*!*T14DATE*!*T15EMP*!*T15DATE*!*T16EMP*!*T16DATE*!*T17EMP*!*T17DATE*!*T18EMP*!*T18DATE*!*T19EMP*!*T19DATE")
+			
+			'header fields
+			f.Intrinsic.String.Build("select top 1 A.JOB+'-'+A.SUFFIX WO, RTRIM(I2.TEXT_INFO2) REV, A.INSTALL, RTRIM(A.BENCH) BENCH, RTRIM(A.NOTES) NOTES, RTRIM(H.PART)+'/'+ RTRIM(I.DESCRIPTION) ITEM_DESC, C.NAME_CUSTOMER from GCG_INS_HEADERB A left join V_JOB_HEADER H on A.JOB = H.JOB and A.SUFFIX = H.SUFFIX left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where A.JOB='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sHeader)
+			
+			'SER_MES_DEV and MEASURE
+			f.Intrinsic.String.Build("select RTRIM(SER_MES_DEV), RTRIM(ACTUAL_MEASURE) from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}' and TASKID in ('04', '06', '07', '08', '09', '10') order by TASKID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sDEVandM)
+			f.Intrinsic.String.Replace(v.Local.sDEVandM, "#$#", "*!*", v.Local.sDEVandM)
+			
+			'EMP and Date
+			f.Intrinsic.String.Build("select EMPID, cast(DAY(INSP_DATE) as CHAR(2)) + '-'+ cast(MONTH(INSP_DATE) as CHAR(2)) + '-'+ cast(YEAR(INSP_DATE) as CHAR(4)) as INSP_DATE from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sEMPandD)
+			f.Intrinsic.String.Replace(v.Local.sEMPandD, "#$#", "*!*", v.Local.sEMPandD)
+			
+			'concat
+			f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}", v.Ambient.Now.FormatMM/DD/YYYY, v.Local.sHeader, v.Global.sSerialNumber(v.Local.iCounter), v.global.sQty, v.Local.sDEVandM, v.Local.sEMPandD, v.Local.sFieldVals)
+			
+			'file names
+			f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\DEFAULT11640.pdf", v.Local.sFile)
+			f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.iCounter, v.Caller.FilesDir, "6552\output\DEFAULT11640",v.Local.sFileSave)
+			
+			'print
+			Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+			Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+			Function.Automation.PDF.Close("MyPDF2")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+			
+			'Form11921
+			f.Intrinsic.Control.CallSub(cmdPrint11921_Click, "argSerial", v.Global.sSerialNumber(v.Local.iCounter))
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Next(v.Local.iCounter)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint_Click.End
+
+Program.Sub.cmdPrint11921_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sSensor.Declare(String)
+	v.Local.sPartDesc.Declare(String)
+	v.Local.sDrawing.Declare(String)
+	v.Local.sPart.Declare(String)
+	v.Local.sSerial.Declare(String)
+	v.Local.sFields.Declare(String)
+	v.Local.sFieldVals.Declare(String)
+	v.Local.sFile.Declare(String)
+	v.Local.sFileSave.Declare(String)
+	v.Local.iCounter.Declare(Long)
+	
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	
+	'gather info
+	f.Intrinsic.String.Build("select RTRIM(I2.TEXT_INFO2) REV, RTRIM(H.PART), RTRIM(I.DESCRIPTION) ITEM_DESC from V_JOB_HEADER H left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where H.JOB='{0}' and H.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		v.Local.sDrawing.Set(v.Local.sRet(0))
+		v.Local.sPart.Set(v.Local.sRet(1))
+		v.Local.sPartDesc.Set(v.Local.sRet(2))
+		v.Local.sSerial.Set(v.Args.argSerial)
+	f.Intrinsic.Control.EndIf
+	
+	'Sensor
+	f.Intrinsic.String.Build("select RTRIM(SENSOR) from GCG_APPLY_SERIAL where JOB='{0}' and SUFFIX='{1}' and RTRIM(SERIAL_NUMBER)='{2}'", v.Global.sJob, v.Global.sSuffix, v.Args.argSerial, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		v.Local.sSensor.Set(v.Local.sRet)
+	f.Intrinsic.Control.EndIf
+	
+	v.Local.sFields.Set("CYL_DESC*!*CYL_LHD*!*CYL_OEM*!*CYL_SERIAL*!*SEN_SERIAL")
+	f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}", v.Local.sPartDesc, v.Local.sDrawing, v.Local.sPart, v.Local.sSerial, v.Local.sSensor, v.Local.sFieldVals)
+	
+	'file names
+	f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11921.pdf", v.Local.sFile)
+	f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.sSerial, v.Caller.FilesDir, "6552\output\11921",v.Local.sFileSave)
+	
+	'print
+	Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+	Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+	Function.Automation.PDF.Close("MyPDF2")
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint11921_Click.End
+
+Program.Sub.cmdPrint22_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sSensor.Declare(String)
+	v.Local.sPartDesc.Declare(String)
+	v.Local.sDrawing.Declare(String)
+	v.Local.sPart.Declare(String)
+	v.Local.sSerial.Declare(String)
+	v.Local.sFields.Declare(String)
+	v.Local.sFieldVals.Declare(String)
+	v.Local.sFile.Declare(String)
+	v.Local.sFileSave.Declare(String)
+	v.Local.iCounter.Declare(Long)
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	
+	'gather info
+	f.Intrinsic.String.Build("select RTRIM(I2.TEXT_INFO2) REV, RTRIM(H.PART), RTRIM(I.DESCRIPTION) ITEM_DESC from V_JOB_HEADER H left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where H.JOB='{0}' and H.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		v.Local.sDrawing.Set(v.Local.sRet(0))
+		v.Local.sPart.Set(v.Local.sRet(1))
+		v.Local.sPartDesc.Set(v.Local.sRet(2))
+		v.Local.sSerial.Set(v.Args.argSerial)
+	f.Intrinsic.Control.EndIf
+	
+	'Sensor
+	f.Intrinsic.String.Build("select RTRIM(SENSOR) from GCG_APPLY_SERIAL where JOB='{0}' and SUFFIX='{1}' and RTRIM(SERIAL_NUMBER)='{2}'", v.Global.sJob, v.Global.sSuffix, v.Args.argSerial, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		v.Local.sSensor.Set(v.Local.sRet)
+	f.Intrinsic.Control.EndIf
+	
+	v.Local.sFields.Set("CYL_DESC*!*CYL_LHD*!*CYL_OEM*!*CYL_SERIAL*!*SEN_SERIAL")
+	f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}", v.Local.sPartDesc, v.Local.sDrawing, v.Local.sPart, v.Local.sSerial, v.Local.sSensor, v.Local.sFieldVals)
+	
+	'file names
+	f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11922.pdf", v.Local.sFile)
+	f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.sSerial, v.Caller.FilesDir, "6552\output\11922",v.Local.sFileSave)
+	
+	'print
+	Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+	Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+	Function.Automation.PDF.Close("MyPDF2")
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint22_Click.End
+
+Program.Sub.Catching.Start
+	f.Intrinsic.UI.Msgbox(v.Ambient.ErrorDescription)
+Program.Sub.Catching.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$nle$}$20220102170629962$}$kjzCRYkA6UEoRnCwndYnRavCwN7ubP9b2H0IS6xkOIQe24LLjJdvysmLRXqhNqVA
+Program.Sub.Comments.End
