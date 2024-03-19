@@ -1,0 +1,1808 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form11640..Create(BaseForm)
+Gui.Form11640..Caption("Inspection & Test Plan - 11640")
+Gui.Form11640..Size(1419,771)
+Gui.Form11640..MinX(0)
+Gui.Form11640..MinY(0)
+Gui.Form11640..Position(0,0)
+Gui.Form11640..AlwaysOnTop(False)
+Gui.Form11640..FontName("Tahoma")
+Gui.Form11640..FontSize(8.25)
+Gui.Form11640..ControlBox(True)
+Gui.Form11640..MaxButton(True)
+Gui.Form11640..MinButton(True)
+Gui.Form11640..MousePointer(0)
+Gui.Form11640..Moveable(True)
+Gui.Form11640..Sizeable(True)
+Gui.Form11640..ShowInTaskBar(True)
+Gui.Form11640..TitleBar(True)
+Gui.Form11640..Event(UnLoad,Form11640_UnLoad)
+Gui.Form11640.lbl1.Create(Label,"INSPECTION & TEST PLAN - NEW",True,259,19,0,234,19,True,0,"Tahoma",12,,0,0)
+Gui.Form11640.lbl1.BorderStyle(0)
+Gui.Form11640.lbl1.FontStyle(True,False,False,False,False)
+Gui.Form11640.lbl1.Anchor(13)
+Gui.Form11640.GsGcInspDetail.Create(GsGridControl)
+Gui.Form11640.GsGcInspDetail.Enabled(True)
+Gui.Form11640.GsGcInspDetail.Visible(True)
+Gui.Form11640.GsGcInspDetail.Zorder(0)
+Gui.Form11640.GsGcInspDetail.Size(817,524)
+Gui.Form11640.GsGcInspDetail.Position(5,162)
+Gui.Form11640.GsGcInspDetail.Event(CellValueChanged,GsGcInspDetail_CellValueChanged)
+Gui.Form11640.lbl2.Create(Label,"Date:",True,27,13,0,51,65,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl2.BorderStyle(0)
+Gui.Form11640.lbl3.Create(Label,"Item# / Description:",True,97,13,0,51,87,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl3.BorderStyle(0)
+Gui.Form11640.lbl4.Create(Label,"Customer/Minesite:",True,93,13,0,51,109,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl4.BorderStyle(0)
+Gui.Form11640.lbl5.Create(Label,"Tested at Bench:",True,82,13,0,51,133,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl5.BorderStyle(0)
+Gui.Form11640.lbl6.Create(Label,"Drawing/Rev#:",True,74,13,0,400,87,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl6.BorderStyle(0)
+Gui.Form11640.lbl7.Create(Label,"Work Order#:",True,68,13,0,399,65,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl7.BorderStyle(0)
+Gui.Form11640.lbl8.Create(Label,"Qty:",True,22,13,0,576,65,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl8.BorderStyle(0)
+Gui.Form11640.dtpDate.Create(DatePicker)
+Gui.Form11640.dtpDate.Enabled(True)
+Gui.Form11640.dtpDate.Visible(True)
+Gui.Form11640.dtpDate.Zorder(0)
+Gui.Form11640.dtpDate.Size(100,20)
+Gui.Form11640.dtpDate.Position(152,60)
+Gui.Form11640.dtpDate.CheckBox(False)
+Gui.Form11640.dtpDate.FontName("Tahoma")
+Gui.Form11640.dtpDate.FontSize(8.25)
+Gui.Form11640.dtpDate.AllowBlank(True)
+Gui.Form11640.dtpDate.Value()
+Gui.Form11640.lblItemDesc.Create(Label,"       ",True,21,13,0,152,88,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lblItemDesc.BorderStyle(0)
+Gui.Form11640.lblCustomer.Create(Label,"     ",True,15,13,0,153,109,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lblCustomer.BorderStyle(0)
+Gui.Form11640.txtBench.Create(TextBox,"",True,66,20,0,152,129,True,0,"Tahoma",8.25,,1)
+Gui.Form11640.txtBench.Event(Change,txtBench_Change)
+Gui.Form11640.lblWO.Create(Label,"      ",True,18,13,0,479,65,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lblWO.BorderStyle(0)
+Gui.Form11640.lblRev.Create(Label,"      ",True,18,13,0,479,87,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lblRev.BorderStyle(0)
+Gui.Form11640.lblQty.Create(Label,"    ",True,12,13,0,602,65,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lblQty.BorderStyle(0)
+Gui.Form11640.lbl9.Create(Label,"See Engineering for Special Inst. (Y/N):",True,188,13,0,400,110,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl9.BorderStyle(0)
+Gui.Form11640.txtSeeEng.Create(TextBox,"",True,21,20,0,591,106,True,0,"Tahoma",8.25,,1)
+Gui.Form11640.txtSeeEng.MaxLength(1)
+Gui.Form11640.cmdApplyToSerial.Create(Button)
+Gui.Form11640.cmdApplyToSerial.Enabled(True)
+Gui.Form11640.cmdApplyToSerial.Visible(True)
+Gui.Form11640.cmdApplyToSerial.Zorder(0)
+Gui.Form11640.cmdApplyToSerial.Size(81,23)
+Gui.Form11640.cmdApplyToSerial.Position(36,700)
+Gui.Form11640.cmdApplyToSerial.Caption("Apply to Serial")
+Gui.Form11640.cmdApplyToSerial.FontName("Tahoma")
+Gui.Form11640.cmdApplyToSerial.FontSize(8.25)
+Gui.Form11640.cmdApplyToSerial.Event(Click,cmdApplyToSerial_ClickOld)
+Gui.Form11640.cmdPrint.Create(Button)
+Gui.Form11640.cmdPrint.Enabled(True)
+Gui.Form11640.cmdPrint.Visible(True)
+Gui.Form11640.cmdPrint.Zorder(0)
+Gui.Form11640.cmdPrint.Size(75,23)
+Gui.Form11640.cmdPrint.Position(132,700)
+Gui.Form11640.cmdPrint.Caption("Print")
+Gui.Form11640.cmdPrint.FontName("Tahoma")
+Gui.Form11640.cmdPrint.FontSize(8.25)
+Gui.Form11640.cmdPrint.Event(Click,cmdPrint_Click)
+Gui.Form11640.GsgcInstruct.Create(GsGridControl)
+Gui.Form11640.GsgcInstruct.Enabled(True)
+Gui.Form11640.GsgcInstruct.Visible(True)
+Gui.Form11640.GsgcInstruct.Zorder(0)
+Gui.Form11640.GsgcInstruct.Size(574,430)
+Gui.Form11640.GsgcInstruct.Position(835,163)
+Gui.Form11640.GsgcInstruct.Event(CellValueChanged,GsgcInstruct_CellValueChanged)
+Gui.Form11640.txtSerial.Create(TextboxM)
+Gui.Form11640.txtSerial.Enabled(False)
+Gui.Form11640.txtSerial.Visible(True)
+Gui.Form11640.txtSerial.Zorder(0)
+Gui.Form11640.txtSerial.Size(292,64)
+Gui.Form11640.txtSerial.Position(679,83)
+Gui.Form11640.txtSerial.FontName("Tahoma")
+Gui.Form11640.txtSerial.FontSize(8.25)
+Gui.Form11640.lbl10.Create(Label,"Current Apply-to Serial:",True,114,13,0,680,63,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl10.BorderStyle(0)
+Gui.Form11640.txtNotes.Create(TextboxM)
+Gui.Form11640.txtNotes.Enabled(True)
+Gui.Form11640.txtNotes.Visible(True)
+Gui.Form11640.txtNotes.Zorder(0)
+Gui.Form11640.txtNotes.Size(524,85)
+Gui.Form11640.txtNotes.Position(889,600)
+Gui.Form11640.txtNotes.FontName("Tahoma")
+Gui.Form11640.txtNotes.FontSize(8.25)
+Gui.Form11640.txtNotes.Event(Change,txtNotes_Change)
+Gui.Form11640.lbl11.Create(Label,"Notes:",True,32,13,0,847,599,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11640.lbl11.BorderStyle(0)
+Gui.FormSerial..Create(BaseForm)
+Gui.FormSerial..Caption("Serial")
+Gui.FormSerial..Size(267,514)
+Gui.FormSerial..MinX(0)
+Gui.FormSerial..MinY(0)
+Gui.FormSerial..Position(0,0)
+Gui.FormSerial..AlwaysOnTop(False)
+Gui.FormSerial..FontName("Tahoma")
+Gui.FormSerial..FontSize(8.25)
+Gui.FormSerial..ControlBox(True)
+Gui.FormSerial..MaxButton(True)
+Gui.FormSerial..MinButton(True)
+Gui.FormSerial..MousePointer(0)
+Gui.FormSerial..Moveable(True)
+Gui.FormSerial..Sizeable(True)
+Gui.FormSerial..ShowInTaskBar(True)
+Gui.FormSerial..TitleBar(True)
+Gui.FormSerial..Event(UnLoad,FormSerial_UnLoad)
+Gui.FormSerial.GsgcSerial.Create(GsGridControl)
+Gui.FormSerial.GsgcSerial.Enabled(True)
+Gui.FormSerial.GsgcSerial.Visible(True)
+Gui.FormSerial.GsgcSerial.Zorder(0)
+Gui.FormSerial.GsgcSerial.Size(253,390)
+Gui.FormSerial.GsgcSerial.Position(7,41)
+Gui.FormSerial.chkSelectAll.Create(CheckBox)
+Gui.FormSerial.chkSelectAll.Enabled(True)
+Gui.FormSerial.chkSelectAll.Visible(True)
+Gui.FormSerial.chkSelectAll.Zorder(0)
+Gui.FormSerial.chkSelectAll.Size(127,20)
+Gui.FormSerial.chkSelectAll.Position(11,17)
+Gui.FormSerial.chkSelectAll.Caption("Select/Deselect All")
+Gui.FormSerial.chkSelectAll.FontName("Tahoma")
+Gui.FormSerial.chkSelectAll.FontSize(8.25)
+Gui.FormSerial.chkSelectAll.Event(Change,chkSelectAll_Change)
+Gui.FormSerial.cmdApply.Create(Button)
+Gui.FormSerial.cmdApply.Enabled(True)
+Gui.FormSerial.cmdApply.Visible(True)
+Gui.FormSerial.cmdApply.Zorder(0)
+Gui.FormSerial.cmdApply.Size(75,23)
+Gui.FormSerial.cmdApply.Position(18,445)
+Gui.FormSerial.cmdApply.Caption("Apply")
+Gui.FormSerial.cmdApply.FontName("Tahoma")
+Gui.FormSerial.cmdApply.FontSize(8.25)
+Gui.FormSerial.cmdApply.Event(Click,cmdApply_Click)
+Gui.FormSerial.cmdCancel.Create(Button)
+Gui.FormSerial.cmdCancel.Enabled(True)
+Gui.FormSerial.cmdCancel.Visible(True)
+Gui.FormSerial.cmdCancel.Zorder(0)
+Gui.FormSerial.cmdCancel.Size(75,23)
+Gui.FormSerial.cmdCancel.Position(112,445)
+Gui.FormSerial.cmdCancel.Caption("Cancel")
+Gui.FormSerial.cmdCancel.FontName("Tahoma")
+Gui.FormSerial.cmdCancel.FontSize(8.25)
+Gui.FormSerial.cmdCancel.Event(Click,FormSerial_UnLoad)
+Gui.FormDefault..Create(BaseForm)
+Gui.FormDefault..Caption("Form")
+Gui.FormDefault..Size(880,772)
+Gui.FormDefault..MinX(0)
+Gui.FormDefault..MinY(0)
+Gui.FormDefault..Position(0,0)
+Gui.FormDefault..AlwaysOnTop(False)
+Gui.FormDefault..FontName("Tahoma")
+Gui.FormDefault..FontSize(8.25)
+Gui.FormDefault..ControlBox(True)
+Gui.FormDefault..MaxButton(True)
+Gui.FormDefault..MinButton(True)
+Gui.FormDefault..MousePointer(0)
+Gui.FormDefault..Moveable(True)
+Gui.FormDefault..Sizeable(True)
+Gui.FormDefault..ShowInTaskBar(True)
+Gui.FormDefault..TitleBar(True)
+Gui.FormDefault..Event(UnLoad,Form11640Default_UnLoad)
+Gui.FormDefault.lbl1.Create(Label,"INSPECTION & TEST PLAN - NEW",True,259,19,0,286,16,True,0,"Tahoma",12,,0,0)
+Gui.FormDefault.lbl1.BorderStyle(0)
+Gui.FormDefault.lbl1.FontStyle(True,False,False,False,False)
+Gui.FormDefault.lbl1.Anchor(13)
+Gui.FormDefault.GsGcInspDetail.Create(GsGridControl)
+Gui.FormDefault.GsGcInspDetail.Enabled(True)
+Gui.FormDefault.GsGcInspDetail.Visible(True)
+Gui.FormDefault.GsGcInspDetail.Zorder(0)
+Gui.FormDefault.GsGcInspDetail.Size(868,518)
+Gui.FormDefault.GsGcInspDetail.Position(5,162)
+Gui.FormDefault.GsGcInspDetail.Anchor(14)
+Gui.FormDefault.GsGcInspDetail.Event(CellValueChanged,GsGcInspDetail_CellValueChanged)
+Gui.FormDefault.lbl2.Create(Label,"Date:",True,27,13,0,51,65,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl2.BorderStyle(0)
+Gui.FormDefault.lbl3.Create(Label,"Item# / Description:",True,97,13,0,51,87,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl3.BorderStyle(0)
+Gui.FormDefault.lbl4.Create(Label,"Customer/Minesite:",True,93,13,0,51,109,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl4.BorderStyle(0)
+Gui.FormDefault.lbl5.Create(Label,"Tested at Bench:",True,82,13,0,51,133,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl5.BorderStyle(0)
+Gui.FormDefault.lbl6.Create(Label,"Drawing/Rev#:",True,74,13,0,302,85,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl6.BorderStyle(0)
+Gui.FormDefault.lbl6.Anchor(13)
+Gui.FormDefault.lbl7.Create(Label,"Work Order#:",True,68,13,0,301,63,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl7.BorderStyle(0)
+Gui.FormDefault.lbl7.Anchor(13)
+Gui.FormDefault.lbl8.Create(Label,"Qty:",True,22,13,0,478,63,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl8.BorderStyle(0)
+Gui.FormDefault.lbl8.Anchor(13)
+Gui.FormDefault.dtpDate.Create(DatePicker)
+Gui.FormDefault.dtpDate.Enabled(True)
+Gui.FormDefault.dtpDate.Visible(True)
+Gui.FormDefault.dtpDate.Zorder(0)
+Gui.FormDefault.dtpDate.Size(100,20)
+Gui.FormDefault.dtpDate.Position(152,60)
+Gui.FormDefault.dtpDate.CheckBox(False)
+Gui.FormDefault.dtpDate.FontName("Tahoma")
+Gui.FormDefault.dtpDate.FontSize(8.25)
+Gui.FormDefault.dtpDate.AllowBlank(True)
+Gui.FormDefault.dtpDate.Value()
+Gui.FormDefault.dtpDate.Event(Change,dtpDate_Change)
+Gui.FormDefault.lblItemDesc.Create(Label,"       ",True,21,13,0,152,88,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lblItemDesc.BorderStyle(0)
+Gui.FormDefault.lblCustomer.Create(Label,"     ",True,15,13,0,153,109,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lblCustomer.BorderStyle(0)
+Gui.FormDefault.txtBench.Create(TextBox,"",True,66,20,0,152,129,True,0,"Tahoma",8.25,,1)
+Gui.FormDefault.txtBench.Event(Change,txtBench_Change)
+Gui.FormDefault.lblWO.Create(Label,"      ",True,18,13,0,381,63,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lblWO.BorderStyle(0)
+Gui.FormDefault.lblWO.Anchor(13)
+Gui.FormDefault.lblRev.Create(Label,"      ",True,18,13,0,381,85,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lblRev.BorderStyle(0)
+Gui.FormDefault.lblRev.Anchor(13)
+Gui.FormDefault.lblQty.Create(Label,"    ",True,12,13,0,504,63,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lblQty.BorderStyle(0)
+Gui.FormDefault.lblQty.Anchor(13)
+Gui.FormDefault.lbl9.Create(Label,"See Engineering for Special Inst. (Y/N):",True,188,13,0,302,108,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl9.BorderStyle(0)
+Gui.FormDefault.lbl9.Anchor(13)
+Gui.FormDefault.txtSeeEng.Create(TextBox,"",True,21,20,0,493,104,True,0,"Tahoma",8.25,,1)
+Gui.FormDefault.txtSeeEng.MaxLength(1)
+Gui.FormDefault.txtSeeEng.Anchor(13)
+Gui.FormDefault.txtSeeEng.Event(Change,txtSeeEng_Change)
+Gui.FormDefault.cmdApplyToSerial.Create(Button)
+Gui.FormDefault.cmdApplyToSerial.Enabled(True)
+Gui.FormDefault.cmdApplyToSerial.Visible(True)
+Gui.FormDefault.cmdApplyToSerial.Zorder(0)
+Gui.FormDefault.cmdApplyToSerial.Size(81,23)
+Gui.FormDefault.cmdApplyToSerial.Position(36,700)
+Gui.FormDefault.cmdApplyToSerial.Caption("Apply to Serial")
+Gui.FormDefault.cmdApplyToSerial.FontName("Tahoma")
+Gui.FormDefault.cmdApplyToSerial.FontSize(8.25)
+Gui.FormDefault.cmdApplyToSerial.Event(Click,cmdApplyToSerial_Click)
+Gui.FormDefault.cmdApplyToSerial.Anchor(6)
+Gui.FormDefault.cmdPrint.Create(Button)
+Gui.FormDefault.cmdPrint.Enabled(True)
+Gui.FormDefault.cmdPrint.Visible(True)
+Gui.FormDefault.cmdPrint.Zorder(0)
+Gui.FormDefault.cmdPrint.Size(75,23)
+Gui.FormDefault.cmdPrint.Position(132,700)
+Gui.FormDefault.cmdPrint.Caption("Print")
+Gui.FormDefault.cmdPrint.FontName("Tahoma")
+Gui.FormDefault.cmdPrint.FontSize(8.25)
+Gui.FormDefault.cmdPrint.Event(Click,cmdPrint_Click)
+Gui.FormDefault.cmdPrint.Anchor(6)
+Gui.FormDefault.txtSerial.Create(TextboxM)
+Gui.FormDefault.txtSerial.Enabled(False)
+Gui.FormDefault.txtSerial.Visible(True)
+Gui.FormDefault.txtSerial.Zorder(0)
+Gui.FormDefault.txtSerial.Size(292,64)
+Gui.FormDefault.txtSerial.Position(581,81)
+Gui.FormDefault.txtSerial.FontName("Tahoma")
+Gui.FormDefault.txtSerial.FontSize(8.25)
+Gui.FormDefault.txtSerial.Anchor(9)
+Gui.FormDefault.lbl10.Create(Label,"Current Apply-to Serial:",True,114,13,0,582,61,True,0,"Tahoma",8.25,,0,0)
+Gui.FormDefault.lbl10.BorderStyle(0)
+Gui.FormDefault.lbl10.Anchor(9)
+Gui.Form11921..Create(BaseForm)
+Gui.Form11921..Caption("Form 11921")
+Gui.Form11921..Size(679,563)
+Gui.Form11921..MinX(0)
+Gui.Form11921..MinY(0)
+Gui.Form11921..Position(0,0)
+Gui.Form11921..AlwaysOnTop(False)
+Gui.Form11921..FontName("Tahoma")
+Gui.Form11921..FontSize(8.25)
+Gui.Form11921..ControlBox(True)
+Gui.Form11921..MaxButton(False)
+Gui.Form11921..MinButton(True)
+Gui.Form11921..MousePointer(0)
+Gui.Form11921..Moveable(True)
+Gui.Form11921..Sizeable(False)
+Gui.Form11921..ShowInTaskBar(True)
+Gui.Form11921..TitleBar(True)
+Gui.Form11921..Event(UnLoad,Form11921_UnLoad)
+Gui.Form11921.pic1.Create(PictureBox)
+Gui.Form11921.pic1.Enabled(True)
+Gui.Form11921.pic1.Visible(True)
+Gui.Form11921.pic1.Zorder(0)
+Gui.Form11921.pic1.Size(660,438)
+Gui.Form11921.pic1.Position(9,9)
+Gui.Form11921.txtSensor21.Create(TextBox,"",True,203,20,0,359,341,True,0,"Tahoma",8.25,,1)
+Gui.Form11921.lblPartDesc.Create(Label,"",True,1,13,0,208,175,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11921.lblPartDesc.BorderStyle(0)
+Gui.Form11921.cmdPrint11921.Create(Button)
+Gui.Form11921.cmdPrint11921.Enabled(True)
+Gui.Form11921.cmdPrint11921.Visible(True)
+Gui.Form11921.cmdPrint11921.Zorder(0)
+Gui.Form11921.cmdPrint11921.Size(75,23)
+Gui.Form11921.cmdPrint11921.Position(65,480)
+Gui.Form11921.cmdPrint11921.Caption("Print")
+Gui.Form11921.cmdPrint11921.FontName("Tahoma")
+Gui.Form11921.cmdPrint11921.FontSize(8.25)
+Gui.Form11921.cmdPrint11921.Event(Click,cmdPrint11921_Click)
+Gui.Form11921.cmdCancel.Create(Button)
+Gui.Form11921.cmdCancel.Enabled(True)
+Gui.Form11921.cmdCancel.Visible(True)
+Gui.Form11921.cmdCancel.Zorder(0)
+Gui.Form11921.cmdCancel.Size(75,23)
+Gui.Form11921.cmdCancel.Position(172,479)
+Gui.Form11921.cmdCancel.Caption("Cancel")
+Gui.Form11921.cmdCancel.FontName("Tahoma")
+Gui.Form11921.cmdCancel.FontSize(8.25)
+Gui.Form11921.cmdCancel.Event(Click,Form11921_UnLoad)
+Gui.Form11921.lblDrawing.Create(Label,"",True,1,13,0,209,219,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11921.lblDrawing.BorderStyle(0)
+Gui.Form11921.lblPart.Create(Label,"",True,1,13,0,209,260,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11921.lblPart.BorderStyle(0)
+Gui.Form11921.lblSerial.Create(Label,"",True,1,13,0,220,304,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11921.lblSerial.BorderStyle(0)
+Gui.Form11922..Create(BaseForm)
+Gui.Form11922..Caption("Form 11922")
+Gui.Form11922..Size(682,539)
+Gui.Form11922..MinX(0)
+Gui.Form11922..MinY(0)
+Gui.Form11922..Position(0,0)
+Gui.Form11922..AlwaysOnTop(False)
+Gui.Form11922..FontName("Tahoma")
+Gui.Form11922..FontSize(8.25)
+Gui.Form11922..ControlBox(True)
+Gui.Form11922..MaxButton(False)
+Gui.Form11922..MinButton(True)
+Gui.Form11922..MousePointer(0)
+Gui.Form11922..Moveable(True)
+Gui.Form11922..Sizeable(False)
+Gui.Form11922..ShowInTaskBar(True)
+Gui.Form11922..TitleBar(True)
+Gui.Form11922..Event(UnLoad,Form11922_UnLoad)
+Gui.Form11922.pic1.Create(PictureBox)
+Gui.Form11922.pic1.Enabled(True)
+Gui.Form11922.pic1.Visible(True)
+Gui.Form11922.pic1.Zorder(0)
+Gui.Form11922.pic1.Size(666,438)
+Gui.Form11922.pic1.Position(10,9)
+Gui.Form11922.txtSensor22.Create(TextBox,"",True,136,20,0,201,344,True,0,"Tahoma",8.25,,1)
+Gui.Form11922.lblPartDesc.Create(Label,"",True,1,13,0,187,176,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11922.lblPartDesc.BorderStyle(0)
+Gui.Form11922.lblDrawing.Create(Label,"",True,1,13,0,187,218,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11922.lblDrawing.BorderStyle(0)
+Gui.Form11922.lblPart.Create(Label,"",True,1,13,0,188,261,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11922.lblPart.BorderStyle(0)
+Gui.Form11922.lblSerial.Create(Label,"",True,1,13,0,213,305,True,0,"Tahoma",8.25,,0,0)
+Gui.Form11922.lblSerial.BorderStyle(0)
+Gui.Form11922.cmdPrint22.Create(Button)
+Gui.Form11922.cmdPrint22.Enabled(True)
+Gui.Form11922.cmdPrint22.Visible(True)
+Gui.Form11922.cmdPrint22.Zorder(0)
+Gui.Form11922.cmdPrint22.Size(75,23)
+Gui.Form11922.cmdPrint22.Position(71,470)
+Gui.Form11922.cmdPrint22.Caption("Print")
+Gui.Form11922.cmdPrint22.FontName("Tahoma")
+Gui.Form11922.cmdPrint22.FontSize(8.25)
+Gui.Form11922.cmdPrint22.Event(Click,cmdPrint22_Click)
+Gui.Form11922.cmd2.Create(Button)
+Gui.Form11922.cmd2.Enabled(True)
+Gui.Form11922.cmd2.Visible(True)
+Gui.Form11922.cmd2.Zorder(0)
+Gui.Form11922.cmd2.Size(75,23)
+Gui.Form11922.cmd2.Position(190,470)
+Gui.Form11922.cmd2.Caption("Cancel")
+Gui.Form11922.cmd2.FontName("Tahoma")
+Gui.Form11922.cmd2.FontSize(8.25)
+Gui.Form11922.cmd2.Event(Click,Form11922_UnLoad)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sJob.Declare(String)
+v.Global.sSuffix.Declare(String)
+v.Global.sQty.Declare(String)
+v.Global.sSerialNumber.Declare(String)
+v.Global.bUseFormB.Declare(Boolean)
+v.Global.bFlagLoadData.Declare(Boolean)
+v.Global.bFlagPrinting.Declare(Boolean)
+
+Program.Sub.Preflight.End
+
+'LHD EQUIPMENT INC
+'Quote 12834
+'script attached to hook#15850 
+'	NamLe, Dec 2021
+
+'Gather/Generate info, display, print to PDF when a user clockin a job, update a job, click on Script 1 button
+'purpose is to document data for testplan and inspection
+Program.Sub.Main.Start
+f.Intrinsic.Control.Try
+	Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+	
+	v.Global.bFlagLoadData.Set(True)
+	
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sTask.Declare(String)
+	
+	#Region "Get Passed var"
+		f.Intrinsic.Control.If(v.Caller.Hook,=,"15850")
+			v.Global.sJob.Set(v.Passed.009990)
+			v.Global.sSuffix.Set(v.Passed.009991)
+'			v.Global.lQty.Set(v.Passed.000001)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.Control.ExitSub
+		f.Intrinsic.Control.EndIf
+		
+	#End Region 'Get Passed var
+	
+	'connect DB
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	
+	#Region "Check BOM item"
+	
+	'form 11640B
+	f.Intrinsic.String.Build("select RTRIM(PART) PART from V_JOB_DETAIL where JOB='{0}' and SUFFIX='{1}' and RTRIM(PART)='{2}'", v.Global.sJob, v.Global.sSuffix, "11922", v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	f.Intrinsic.Control.If(v.Ambient.ExecuteAndReturnEOF,=,False)
+		v.Global.bUseFormB.Set(True)
+	f.Intrinsic.Control.Else
+		v.Global.bUseFormB.Set(False)
+	f.Intrinsic.Control.EndIf
+	
+	#End Region 'Check BOM item
+	
+	
+	#Region "Get data"
+	
+	'test WO
+'	v.Global.sJob.Set("12345")
+'	v.Global.sSuffix.Set("001")
+	
+	f.Intrinsic.String.Build("select RTRIM(D.TASKID) ID, RTRIM(D.TASK) TASK, RTRIM(D.PERSON_RESP) PERSON_RESP, RTRIM(D.REFER_TO) REFER_TO, RTRIM(D.EMPID) EMPID, D.INSP_DATE INSP_DATE, RTRIM(D.SER_MES_DEV) SER_MES_DEV, RTRIM(D.ACTUAL_MEASURE) ACTUAL_MEASURE from GCG_INS_HEADERB H left join GCG_INS_DETAIL D on RTRIM(H.JOB) = RTRIM(D.JOB) and RTRIM(H.SUFFIX) = RTRIM(D.SUFFIX) where RTRIM(H.JOB) = '{0}' and RTRIM(H.SUFFIX) = '{1}' order by ID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+
+	f.Intrinsic.Control.If(v.DataTable.dtInpsDetail.Exists)
+		f.Data.Datatable.Close("dtInpsDetail")
+	f.Intrinsic.Control.EndIf
+
+	f.Data.Datatable.CreateFromSQL("dtInpsDetail", "Con", v.Local.sSQL, True)
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB)
+		
+		'Sub table Installation Instructions
+		f.Intrinsic.String.Build("select RTRIM(TASK) TASK, RTRIM(EMPID) EMPID from GCG_INS_INSTRB where JOB = '{0}' and SUFFIX = '{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+		f.Intrinsic.Control.If(v.DataTable.dtInpsInstruction.Exists)
+			f.Data.Datatable.Close("dtInpsInstruction")
+		f.Intrinsic.Control.EndIf
+	
+		f.Data.Datatable.CreateFromSQL("dtInpsInstruction", "Con", v.Local.sSQL, True)
+		
+		'if new inspect, insert new records
+		f.Intrinsic.Control.If(v.DataTable.dtInpsDetail.RowCount,=,0)
+		
+			'11640B INIT RECORDS
+			#Region "insert new records"
+	
+			'insert new FORM B RECORD
+			f.Intrinsic.String.Build("insert into GCG_INS_HEADERB (JOB,SUFFIX, INSTALL) values('{0}','{1}', 'N')", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Obtain Required Parts")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'P/L', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "01", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Clean all Parts/Install Seals")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'P/L', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "02", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Insp Barrel ID & Clean Ports")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Supervisor', 'xxxx', '', '')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "03", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Load Rod & Torque Nut")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler','xxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "04", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Inspect & Assemble Cylinder")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler','00008', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "05", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Test Pressure")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "06", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Measure Retracted Length")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "07", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Measure Extended Length")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "08", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Ck. Anchor Dist if on Dwg")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "09", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Ck Rod Mnt Dist if on Dwg")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "10", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Verify Sensor Correctly Installed")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'ITP', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "11", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Test CB Valve/Check Valve")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', '00009', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "12", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Pin Eye & Anchor")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'xxxx', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "13", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Stamp Serial # onto Cyl")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWM', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "14", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Painting")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Painter', '00010', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "15", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Ck Pny (stem bshg) Sticker")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Insp', 'P/L', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "16", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Vislnsp;welds,prts,thds,plg")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Insp', 'xxxx', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "17", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("P/L,ITP,=ok*final Accept*")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Insp', 'PL/TP', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "18", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Rec by Whse Good Cond")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Wareh', 'xxxx', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "19", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Properly Packed for Shipng")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Shipper', 'SpIns', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "20", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+	#End Region 'Insert new records
+			
+			'close table and reselect data
+			f.Data.Datatable.Close("dtInpsDetail")
+			f.Intrinsic.String.Build("select RTRIM(D.TASKID) ID, RTRIM(D.TASK) TASK, RTRIM(D.PERSON_RESP) PERSON_RESP, RTRIM(D.REFER_TO) REFER_TO, RTRIM(D.EMPID) EMPID, D.INSP_DATE INSP_DATE, RTRIM(D.SER_MES_DEV) SER_MES_DEV, RTRIM(D.ACTUAL_MEASURE) ACTUAL_MEASURE from GCG_INS_HEADERB H left join GCG_INS_DETAIL D on RTRIM(H.JOB) = RTRIM(D.JOB) and RTRIM(H.SUFFIX) = RTRIM(D.SUFFIX) where RTRIM(H.JOB) = '{0}' and RTRIM(H.SUFFIX) = '{1}' order by ID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			
+			f.Data.Datatable.CreateFromSQL("dtInpsDetail", "Con", v.Local.sSQL, True)
+			
+		f.Intrinsic.Control.EndIf
+		
+		'if new install instruction, insert new records
+		f.Intrinsic.Control.If(v.DataTable.dtInpsInstruction.RowCount,=,0)
+		
+			'11640B INSTRUCT INIT RECORDS
+			#Region "insert new records"
+			v.Local.sTask.Set("01) DISCONNECT M12 CONNECTOR FROM THE MOUNTING FLANGE")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("02) FEED A SHORT PIECE OF TUBING ATTACHED TO A RIGID WIRE THROUGH THE 16mm MOUNTING HOLE AND OUT OF THE CYLINDER BODY")
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("03) ATTACH THE END OF THE TUBING TO THE M12 INSERT")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("04) PULL THE TUBING ATTACHED TO THE M12 INSERT WHILE PUSHING THE SENSOR INTO THE CYLINDER")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("05) SEAT SENSOR PART-WAY INTO THE CAVITY")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("06) PULL THE M12 INSERT THROUGH THE 16mm HOLE")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("07) PLACE A LENGTH OF PVC PIPE (DWG P/N -99) OVER THE SENSOR PIPE, FLUSH AGAINST THE SENSOR HEAD [DO NOT USE METAL PIPE]")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("08) TAKE CARE NOT TO PINCH WIRES BETWEEN SENSOR HOUSING AND CYLINDER BACKSTOP")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("09) MANUALLY PUSH THE SENSOR INTO THE CAVITY")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("10) DO NOT STRIKE THE PVC PIPE OR SENSOR FULLY INTO THE BACKSTOP.")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("11) SHOCK TO THE SENSOR MAY CAUSE DAMAGE")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("12) CHECK THE SET SCREW HOLE FOR THE RED BAND INDICATING ALIGNMENT WITH THE SET SCREW GROOVE.")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("13) INSTALL SET SCREW WITH LOCTITE 242 TORQUE 4 TO 5 INCH POUNDS")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("14) TEST CONNECTOR PORT FOR OIL LEAKS PRIOR TO ATTACHING M12 CONNECTOR")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("15) SNAP THE M12 CONNECTOR INTO THE MOUNTING FLANGE AND FASTEN TO THE CYLINDER")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("16) COMPLETE THE CYLINDER ASSEMBLY AND CHECK SENSOR FUNCTION DURING CYLINDER LEAK TEST")
+			f.Intrinsic.String.Build("insert into GCG_INS_INSTRB (JOB, SUFFIX, TASK, EMPID) values('{0}', '{1}','{2}','{3}')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "" ,v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			#End Region 'insert new records
+			
+			'close and re-select
+			f.Data.Datatable.Close("dtInpsInstruction")
+			f.Intrinsic.String.Build("select RTRIM(TASK) TASK, RTRIM(EMPID) EMPID from GCG_INS_INSTRB where JOB = '{0}' and SUFFIX = '{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.Data.Datatable.CreateFromSQL("dtInpsInstruction", "Con", v.Local.sSQL, True)
+			
+		f.Intrinsic.Control.EndIf
+		
+		'load controls, grids, serialize
+		f.Intrinsic.Control.CallSub(FormatGrid_11640)
+		f.Intrinsic.Control.CallSub(FormatGrid_11640_Instruct)
+		f.Intrinsic.Control.CallSub(Deserialize)
+		
+		f.Intrinsic.Control.CallSub(LoadControl_Form11640)
+		gui.Form11640..Show
+
+	
+	'use Default Form
+	f.Intrinsic.Control.Else
+		'if new inspect, insert new records
+		f.Intrinsic.Control.If(v.DataTable.dtInpsDetail.RowCount,=,0)
+		
+		'QF INIT RECORDS
+						#Region "insert new records"
+		
+			'insert new DEFAULT FORM records
+			f.Intrinsic.String.Build("insert into GCG_INS_HEADERB (JOB,SUFFIX, INSTALL) values('{0}','{1}', 'N')", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Obtain Required Parts")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'P/L', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "01", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Clean all Parts/Install Seals")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'P/L', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "02", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Insp Barrel ID & Clean Ports")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Supervisor', 'xxxx', '', '')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "03", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Load Rod & Torque Nut")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler','xxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "04", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Inspect & Assemble Cylinder")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler','00008', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "05", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Test Pressure")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "06", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Measure Retracted Length")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "07", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Measure Extended Length")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "08", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Ck. Anchor Dist if on Dwg")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "09", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Ck Rod Mnt Dist if on Dwg")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWG')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "10", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Test CB Valve/Check Valve")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', '00009', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "11", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Pin Eye & Anchor")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'xxxx', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "12", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Stamp Serial # onto Cyl")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Assembler', 'DWM', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "13", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Painting")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Painter', '00010', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "14", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Ck Pny (stem bshg) Sticker")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Insp', 'P/L', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "15", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Vislnsp;welds,prts,thds,plg")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Insp', 'xxxx', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "16", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("P/L,ITP,=ok*final Accept*")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Insp', 'PL/TP', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "17", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Rec by Whse Good Cond")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Wareh', 'xxxx', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "18", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			v.Local.sTask.Set("Properly Packed for Shipng")
+			f.Intrinsic.String.Build("insert into GCG_INS_DETAIL (JOB,SUFFIX,TASK,TASKID, PERSON_RESP, REFER_TO, SER_MES_DEV, ACTUAL_MEASURE) values('{0}','{1}','{2}','{3}', 'Shipper', 'SpIns', 'xxxx', 'xxxxx')", v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, "19", v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			
+			
+	#End Region 'Insert new records
+	
+			'close table and reselect
+			f.Data.Datatable.Close("dtInpsDetail")
+			f.Intrinsic.String.Build("select RTRIM(D.TASKID) ID, RTRIM(D.TASK) TASK, RTRIM(D.PERSON_RESP) PERSON_RESP, RTRIM(D.REFER_TO) REFER_TO, RTRIM(D.EMPID) EMPID, D.INSP_DATE INSP_DATE, RTRIM(D.SER_MES_DEV) SER_MES_DEV, RTRIM(D.ACTUAL_MEASURE) ACTUAL_MEASURE from GCG_INS_HEADERB H left join GCG_INS_DETAIL D on RTRIM(H.JOB) = RTRIM(D.JOB) and RTRIM(H.SUFFIX) = RTRIM(D.SUFFIX) where RTRIM(H.JOB) = '{0}' and RTRIM(H.SUFFIX) = '{1}' order by ID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			
+			f.Data.Datatable.CreateFromSQL("dtInpsDetail", "Con", v.Local.sSQL, True)
+	
+		f.Intrinsic.Control.EndIf
+		
+		'Replace with Default Form
+		f.Intrinsic.Control.CallSub(FormatGrid_11640Default)
+'		f.Intrinsic.Control.CallSub(FormatGrid_11640_Instruct)
+		f.Intrinsic.Control.CallSub(DeserializeDefault)
+		
+		f.Intrinsic.Control.CallSub(LoadControl_Form11640Default)
+		gui.FormDefault..Show
+		
+	f.Intrinsic.Control.EndIf
+	
+	#End Region 'Get data
+	
+	'close connection
+	f.ODBC.Connection!Con.Close
+	
+	v.Global.bFlagLoadData.Set(False)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+'Format Form B
+Program.Sub.FormatGrid_11640.Start
+f.Intrinsic.Control.Try
+
+	gui.Form11640.GsGcInspDetail.AddGridviewFromDatatable("gvInspDetail", "dtInpsDetail")
+	gui.Form11640.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!Editable, True)
+	gui.Form11640.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!ReadOnly, False)
+	gui.Form11640.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!EnableAppearanceOddRow, True)
+	gui.Form11640.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!ColumnAutoWidth, True)
+	
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!Caption, "ID")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!Caption, "Task")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!Caption, "Person Resp.")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!Caption, "Refer To")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "EMPID", v.Enum.ColumnPropertyNames!Caption, "Emp#")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!Caption, "Date")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "SER_MES_DEV", v.Enum.ColumnPropertyNames!Caption, "Ser # Mes Dev")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ACTUAL_MEASURE", v.Enum.ColumnPropertyNames!Caption, "Actual Meas.")
+	
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "EMPID", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "SER_MES_DEV", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ACTUAL_MEASURE", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "EMPID", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "SER_MES_DEV", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ACTUAL_MEASURE", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!DisplayCustomDateTime, "d")
+	
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	gui.Form11640.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	
+	gui.Form11640.GsGcInspDetail.MainView("gvInspDetail")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.FormatGrid_11640.End
+
+'Format sub grid Form B
+Program.Sub.FormatGrid_11640_Instruct.Start
+f.Intrinsic.Control.Try
+
+	gui.Form11640.GsgcInstruct.AddGridviewFromDatatable("gvInstruct", "dtInpsInstruction")
+	gui.Form11640.GsgcInstruct.SetGridviewProperty("gvInstruct", v.Enum.GridViewPropertyNames!RowAutoHeight, True)
+	gui.Form11640.GsgcInstruct.SetGridviewProperty("gvInstruct", v.Enum.GridViewPropertyNames!Editable, True)
+	gui.Form11640.GsgcInstruct.SetGridviewProperty("gvInstruct", v.Enum.GridViewPropertyNames!ReadOnly, False)
+	
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "EMPID", v.Enum.ColumnPropertyNames!Caption, "EMP#")
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "EMPID", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "TASK", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "TASK", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "EMPID", v.Enum.ColumnPropertyNames!MaxWidth,40)
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "TASK", v.Enum.ColumnPropertyNames!CellWordWrap,Wrap)
+	
+	gui.Form11640.GsgcInstruct.SetColumnProperty("gvInstruct", "TASK", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	
+	gui.Form11640.GsgcInstruct.MainView("gvInstruct")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.FormatGrid_11640_Instruct.End
+
+'Load controls Form B
+Program.Sub.LoadControl_Form11640.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sJob.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sREV.Declare(String)
+	v.Local.sInstall.Declare(String)
+	v.Local.sBench.Declare(String)
+	v.Local.sNotes.Declare(String)
+	v.Local.sItem.Declare(String)
+	v.Local.sCustomer.Declare(String)
+	v.Local.sQty.Declare(String)
+	v.Local.dDate.Declare(String)
+	v.Local.sDate.Declare(String)
+	
+	f.Intrinsic.String.Build("select top 1 RTRIM(I2.TEXT_INFO2) REV, A.INSTALL, RTRIM(A.BENCH) BENCH, RTRIM(A.NOTES) NOTES, RTRIM(H.PART)+'/'+ RTRIM(I.DESCRIPTION) ITEM_DESC, C.NAME_CUSTOMER, H.QTY_ORDER, LEFT(A.START_DATE,10) from GCG_INS_HEADERB A left join V_JOB_HEADER H on A.JOB = H.JOB and A.SUFFIX = H.SUFFIX left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where A.JOB='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.String.Concat(v.Global.sJob,"-",v.Global.sSuffix,v.Local.sJob)
+	gui.Form11640.lblWO.Caption(v.Local.sJob)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*", v.Local.sRet)
+		v.Local.sREV.Set(v.Local.sRet(0))
+		v.Local.sInstall.Set(v.Local.sRet(1))
+		v.Local.sBench.Set(v.Local.sRet(2))
+		v.Local.sNotes.Set(v.Local.sRet(3))
+		v.Local.sItem.Set(v.Local.sRet(4))
+		v.Local.sCustomer.Set(v.Local.sRet(5))
+		v.Local.sQty.Set(v.Local.sRet(6))
+		v.Global.sQty.Set(v.Local.sRet(6))
+		
+		gui.Form11640.txtBench.Text(v.Local.sBench)
+		gui.Form11640.txtNotes.Text(v.Local.sNotes)
+		gui.Form11640.txtSeeEng.Text(v.Local.sInstall)
+		gui.Form11640.lblCustomer.Caption(v.Local.sCustomer)
+		gui.Form11640.lblItemDesc.Caption(v.Local.sItem)
+		gui.Form11640.lblRev.Caption(v.Local.sREV)
+		gui.Form11640.dtpDate.Value(v.Local.sRet(7))
+		gui.Form11640.lblQty.Caption(v.Local.sQty)
+		
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.CallSub(LoadSerial)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadControl_Form11640.End
+
+Program.Sub.LoadSerial.Start
+f.Intrinsic.Control.Try
+	v.Local.sRet.Declare(String)
+	v.Local.sSQL.Declare(String)
+	f.Intrinsic.String.Build("select RTRIM(SERIAL_NUMBER) SERIAL from GCG_APPLY_SERIAL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#", ",", v.Local.sRet)
+		f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+			gui.Form11640.txtSerial.Text(v.Local.sRet)
+		f.Intrinsic.Control.Else
+			gui.FormDefault.txtSerial.Text(v.Local.sRet)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadSerial.End
+
+'Format Form Default
+Program.Sub.FormatGrid_11640Default.Start
+f.Intrinsic.Control.Try
+
+	gui.FormDefault.GsGcInspDetail.AddGridviewFromDatatable("gvInspDetail", "dtInpsDetail")
+	
+	gui.FormDefault.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!Editable, True)
+	gui.FormDefault.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!ReadOnly, False)
+	gui.FormDefault.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!EnableAppearanceOddRow, True)
+	gui.FormDefault.GsGcInspDetail.SetGridviewProperty("gvInspDetail", v.Enum.GridViewPropertyNames!ColumnAutoWidth, True)
+	
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!Caption, "ID")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!Caption, "Task")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!Caption, "Person Resp.")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!Caption, "Refer To")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "EMPID", v.Enum.ColumnPropertyNames!Caption, "Emp#")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!Caption, "Date")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "SER_MES_DEV", v.Enum.ColumnPropertyNames!Caption, "Ser # Mes Dev")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ACTUAL_MEASURE", v.Enum.ColumnPropertyNames!Caption, "Actual Meas.")
+	
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "EMPID", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "SER_MES_DEV", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ACTUAL_MEASURE", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "EMPID", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "SER_MES_DEV", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ACTUAL_MEASURE", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "INSP_DATE", v.Enum.ColumnPropertyNames!DisplayCustomDateTime, "d")
+	
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "ID", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "TASK", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "PERSON_RESP", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	gui.FormDefault.GsGcInspDetail.SetColumnProperty("gvInspDetail", "REFER_TO", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	
+	gui.FormDefault.GsGcInspDetail.MainView("gvInspDetail")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.FormatGrid_11640Default.End
+
+'Load controls Form Default
+Program.Sub.LoadControl_Form11640Default.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sJob.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sREV.Declare(String)
+	v.Local.sInstall.Declare(String)
+	v.Local.sBench.Declare(String)
+	v.Local.sNotes.Declare(String)
+	v.Local.sItem.Declare(String)
+	v.Local.sCustomer.Declare(String)
+	v.Local.sQty.Declare(String)
+	v.Local.dDate.Declare(String)
+	v.Local.sDate.Declare(String)
+	
+	f.Intrinsic.String.Build("select top 1 RTRIM(I2.TEXT_INFO2) REV, A.INSTALL, RTRIM(A.BENCH) BENCH, RTRIM(A.NOTES) NOTES, RTRIM(H.PART)+'/'+ RTRIM(I.DESCRIPTION) ITEM_DESC, C.NAME_CUSTOMER, H.QTY_ORDER, LEFT(A.START_DATE,10) from GCG_INS_HEADERB A left join V_JOB_HEADER H on A.JOB = H.JOB and A.SUFFIX = H.SUFFIX left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where A.JOB='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.String.Concat(v.Global.sJob,"-",v.Global.sSuffix,v.Local.sJob)
+	gui.FormDefault.lblWO.Caption(v.Local.sJob)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*", v.Local.sRet)
+		v.Local.sREV.Set(v.Local.sRet(0))
+		v.Local.sInstall.Set(v.Local.sRet(1))
+		v.Local.sBench.Set(v.Local.sRet(2))
+		v.Local.sNotes.Set(v.Local.sRet(3))
+		v.Local.sItem.Set(v.Local.sRet(4))
+		v.Local.sCustomer.Set(v.Local.sRet(5))
+		v.Local.sQty.Set(v.Local.sRet(6))
+		v.Global.sQty.Set(v.Local.sRet(6))
+		
+		gui.FormDefault.txtBench.Text(v.Local.sBench)
+		gui.FormDefault.txtNotes.Text(v.Local.sNotes)
+		gui.FormDefault.txtSeeEng.Text(v.Local.sInstall)
+		gui.v.lblCustomer.Caption(v.Local.sCustomer)
+		gui.FormDefault.lblItemDesc.Caption(v.Local.sItem)
+		gui.FormDefault.lblRev.Caption(v.Local.sREV)
+		gui.FormDefault.dtpDate.Value(v.Local.sRet(7))
+		gui.FormDefault.lblQty.Caption(v.Local.sQty)
+		
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.CallSub(LoadSerial)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadControl_Form11640Default.End
+
+Program.Sub.Catching.Start
+	f.Intrinsic.UI.Msgbox(v.Ambient.ErrorDescription)
+Program.Sub.Catching.End
+
+Program.Sub.Form11640_UnLoad.Start
+'Serialize
+f.Intrinsic.Control.CallSub(Serialize)
+f.Intrinsic.Control.End
+Program.Sub.Form11640_UnLoad.End
+
+Program.Sub.Form11640Default_UnLoad.Start
+'Serialize
+f.Intrinsic.Control.CallSub(SerializeDefault)
+f.Intrinsic.Control.End
+Program.Sub.Form11640Default_UnLoad.End
+
+Program.Sub.cmdApplyToSerial_ClickOld.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sTemp.Declare(String)
+	
+	f.Intrinsic.String.Build("Select RTRIM(SERIAL_START) SERIAL From V_JOB_SERIAL where RTRIM(JOB)='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+
+	f.Intrinsic.UI.SetBrowserHotTypeAhead(true)
+	function.Intrinsic.UI.SetBrowserMultiSelect(True)
+	
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.UI.Browser("Serial", "con", v.Local.sSQL, "SERIAL", "100", V.Local.sRet)
+	f.ODBC.Connection!con.Close
+	
+	f.Intrinsic.Control.If(V.Local.sRet, <>, "***CANCEL***")
+		v.Global.sSerialNumber.Set(v.Local.sRet)
+		f.Intrinsic.String.Replace(v.Global.sSerialNumber,"!*!", ",", v.Global.sSerialNumber)
+		gui.Form11640.txtSerial.Text(v.Global.sSerialNumber)
+		gui.FormDefault.txtSerial.Text(v.Global.sSerialNumber)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdApplyToSerial_ClickOld.End
+
+'Apply to Serial
+Program.Sub.cmdApplyToSerial_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sErrorMsg.Declare(String)
+	
+	f.Intrinsic.String.Build("Select RTRIM(A.SERIAL_START) SERIAL, B.APPLIED BSELECT From V_JOB_SERIAL A left join GCG_APPLY_SERIAL B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX and RTRIM(A.SERIAL_START) = RTRIM(B.SERIAL_NUMBER) where RTRIM(A.JOB)='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	
+	f.Intrinsic.Control.if(v.DataTable.dtSerial.Exists)
+		f.Data.Datatable.Close("dtSerial")	
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Datatable.CreateFromSQL("dtSerial", "Con", v.Local.sSQL, True)
+	f.ODBC.Connection!con.Close
+	
+	f.Intrinsic.Control.If(v.DataTable.dtSerial.RowCount,>,0)
+		gui.Form11640..Enabled(False)
+		gui.FormDefault..Enabled(False)
+		f.Intrinsic.Control.CallSub(PopulateSerialGrid)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Serial Not Found for WO#{0}-{1}", v.Global.sJob, v.Global.sSuffix, v.Local.sErrorMsg)
+		f.Intrinsic.UI.Msgbox(v.Local.sErrorMsg, "Serial Not Found")
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdApplyToSerial_Click.End
+
+Program.Sub.PopulateSerialGrid.Start
+f.Intrinsic.Control.Try
+	gui.FormSerial.GsgcSerial.Visible(False)
+
+	gui.FormSerial.GsgcSerial.AddGridviewFromDatatable("gvSerial", "dtSerial")
+	gui.FormSerial.GsgcSerial.SetGridviewProperty("gvSerial", v.Enum.GridViewPropertyNames!EnableAppearanceOddRow,True)
+	gui.FormSerial.GsgcSerial.SetGridviewProperty("gvSerial", v.Enum.GridViewPropertyNames!Editable,True)
+	gui.FormSerial.GsgcSerial.SetGridviewProperty("gvSerial", v.Enum.GridViewPropertyNames!ReadOnly, False)
+	
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "SERIAL", v.Enum.ColumnPropertyNames!Caption, "Serial Number")
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "BSELECT", v.Enum.ColumnPropertyNames!Caption, "Select")
+	
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "SERIAL", v.Enum.ColumnPropertyNames!AllowEdit, False)
+	
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "SERIAL", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "BSELECT", v.Enum.ColumnPropertyNames!HeaderFontBold, True)
+	
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "SERIAL", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "BSELECT", v.Enum.ColumnPropertyNames!HeaderHAlignment, "Center")
+	
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "SERIAL", v.Enum.ColumnPropertyNames!CellHAlignment, "Center")
+	gui.FormSerial.GsgcSerial.SetColumnProperty("gvSerial", "BSELECT", v.Enum.ColumnPropertyNames!CellHAlignment, "Center")
+	
+	gui.FormSerial.GsgcSerial.MainView("gvSerial")
+	gui.FormSerial..Visible(True)
+	gui.FormSerial.GsgcSerial.Visible(True)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.PopulateSerialGrid.End
+
+Program.Sub.PopulateSerialGridDefault.Start
+f.Intrinsic.Control.Try
+	gui.FormSerial.GsgcSerial.Visible(False)
+	gui.FormSerial.GsgcSerial.AddGridviewFromDatatable("gvSerial", "dtSerial")
+	gui.FormSerial.GsgcSerial.SetGridviewProperty("gvSerial", v.Enum.GridViewPropertyNames!EnableAppearanceOddRow,True)
+	gui.FormSerial.GsgcSerial.MainView("gvSerial")
+	gui.FormSerial.GsgcSerial.Visible(True)
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.PopulateSerialGridDefault.End
+
+'entering values to grid
+Program.Sub.GsGcInspDetail_CellValueChanged.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sID.Declare(String)
+	v.Local.sEmpID.Declare(String)
+	v.Local.dInsDate.Declare(Date)
+	v.Local.sInsDate.Declare(String)
+	v.Local.sSMD.Declare(String)
+	v.Local.sActMeas.Declare(String)
+	
+	f.Intrinsic.Control.If(v.Global.bFlagLoadData,=,True)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+		gui.Form11640.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", "ID", v.Args.RowIndex, v.Local.sID)
+		'switch columns + update
+		f.Intrinsic.Control.SelectCase(v.Args.column)
+			f.Intrinsic.Control.Case("EMPID")
+				gui.Form11640.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.sEmpID)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set EMPID='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}'", v.Local.sEmpID, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.Case("INSP_DATE")
+				gui.Form11640.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.dInsDate)
+				f.Intrinsic.String.Format(v.Local.dInsDate,"YYYY-MM-DD", v.Local.sInsDate)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set INSP_DATE='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}'", v.Local.sInsDate, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.Case("SER_MES_DEV")
+				gui.Form11640.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.sSMD)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set SER_MES_DEV='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}' and TASKID in ('04','06','07','08','09','10')", v.Local.sSMD, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.Case("ACTUAL_MEASURE")
+				gui.Form11640.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.sActMeas)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set ACTUAL_MEASURE='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}' and TASKID in ('04','06','07','08','09','10')", v.Local.sActMeas, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+		f.Intrinsic.Control.EndSelect
+		f.Intrinsic.Control.EndSelect
+	f.Intrinsic.Control.Else
+		gui.FormDefault.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", "ID", v.Args.RowIndex, v.Local.sID)
+		'switch columns + update
+		f.Intrinsic.Control.SelectCase(v.Args.column)
+			f.Intrinsic.Control.Case("EMPID")
+				gui.FormDefault.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.sEmpID)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set EMPID='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}'", v.Local.sEmpID, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.Case("INSP_DATE")
+				gui.FormDefault.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.dInsDate)
+				f.Intrinsic.String.Format(v.Local.dInsDate,"YYYY-MM-DD", v.Local.sInsDate)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set INSP_DATE='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}'", v.Local.sInsDate, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.Case("SER_MES_DEV")
+				gui.FormDefault.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.sSMD)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set SER_MES_DEV='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}' and TASKID in ('04','06','07','08','09','10')", v.Local.sSMD, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.Case("ACTUAL_MEASURE")
+				gui.FormDefault.GsGcInspDetail.GetCellValueByColumnName("gvInspDetail", v.Args.Column, v.Args.RowIndex, v.Local.sActMeas)
+				f.Intrinsic.String.Build("update GCG_INS_DETAIL set ACTUAL_MEASURE='{0}' where JOB='{1}' and SUFFIX='{2}' and TASKID='{3}' and TASKID in ('04','06','07','08','09','10')", v.Local.sActMeas, v.Global.sJob, v.Global.sSuffix, v.Local.sID, v.Local.sSQL)
+				f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+		f.Intrinsic.Control.EndSelect
+	f.Intrinsic.Control.EndIf
+	
+	'refresh?
+	
+	f.ODBC.Connection!Con.Close
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcInspDetail_CellValueChanged.End
+
+Program.Sub.FormSerial_UnLoad.Start
+'clear select, close table
+gui.FormSerial..Visible(false)
+gui.Form11640..Enabled(True)
+gui.FormDefault..Enabled(True)
+Program.Sub.FormSerial_UnLoad.End
+
+Program.Sub.cmdPrint_Click.Start
+f.Intrinsic.Control.Try
+
+	v.Local.sFile.Declare(String)
+	v.Local.sFileSave.Declare(String)
+	v.Local.sFields.Declare(String)
+	v.Local.sFieldVals.Declare(String)
+	v.Local.sFileCopy.Declare(String)
+	v.Local.sHeader.Declare(String)
+	v.Local.sDEVandM.Declare(String)
+	v.Local.sEMPandD.Declare(String)
+	v.Local.sInstallInstr.Declare(String)
+	v.Local.sSQL.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.iCounter.Declare(Long)
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+		v.Global.sSerialNumber.Set(v.Screen.Form11640!txtSerial.Text)
+	f.Intrinsic.Control.Else
+		v.Global.sSerialNumber.Set(v.Screen.FormDefault!txtSerial.Text)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Global.sSerialNumber,=,"")
+		f.Intrinsic.UI.Msgbox("Please Select and Apply at least 01 Serial Number", "Missing Serial Number")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Split(v.Global.sSerialNumber,",", v.Global.sSerialNumber)
+	
+	f.Intrinsic.Control.For(v.Local.iCounter, 0, v.Global.sSerialNumber.UBound, 1)
+		
+		'open connection
+		f.ODBC.Connection!Con.OpenCompanyConnection
+		
+		'form check
+		f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+			v.Local.sFields.Set("DATE*!*WO*!*REV*!*ENG*!*BENCH*!*NOTES*!*ITEM_DESC*!*CUSTOMER*!*SERIAL*!*QTY*!*T4DEV*!*T4M*!*T6DEV*!*T6M*!*T7DEV*!*T7M*!*T8DEV*!*T8M*!*T9DEV*!*T9M*!*T10DEV*!*T10M*!*INS1*!*INS2*!*INS3*!*INS4*!*INS5*!*INS6*!*INS7*!*INS8*!*INS9*!*INS10*!*INS11*!*INS12*!*INS13*!*INS14*!*INS15*!*INS16*!*T1EMP*!*T1DATE*!*T2EMP*!*T2DATE*!*T3EMP*!*T3DATE*!*T4EMP*!*T4DATE*!*T5EMP*!*T5DATE*!*T6EMP*!*T6DATE*!*T7EMP*!*T7DATE*!*T8EMP*!*T8DATE*!*T9EMP*!*T9DATE*!*T10EMP*!*T10DATE*!*T11EMP*!*T11DATE*!*T12EMP*!*T12DATE*!*T13EMP*!*T13DATE*!*T14EMP*!*T14DATE*!*T15EMP*!*T15DATE*!*T16EMP*!*T16DATE*!*T17EMP*!*T17DATE*!*T18EMP*!*T18DATE*!*T19EMP*!*T19DATE*!*T20EMP*!*T20DATE")
+			
+			'header fields
+			f.Intrinsic.String.Build("select top 1 A.JOB+'-'+A.SUFFIX WO, RTRIM(I2.TEXT_INFO2) REV, A.INSTALL, RTRIM(A.BENCH) BENCH, RTRIM(A.NOTES) NOTES, RTRIM(H.PART)+'/'+ RTRIM(I.DESCRIPTION) ITEM_DESC, C.NAME_CUSTOMER from GCG_INS_HEADERB A left join V_JOB_HEADER H on A.JOB = H.JOB and A.SUFFIX = H.SUFFIX left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where A.JOB='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sHeader)
+			
+			'SER_MES_DEV and MEASURE
+			f.Intrinsic.String.Build("select RTRIM(SER_MES_DEV), RTRIM(ACTUAL_MEASURE) from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}' and TASKID in ('04', '06', '07', '08', '09', '10') order by TASKID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sDEVandM)
+			f.Intrinsic.String.Replace(v.Local.sDEVandM, "#$#", "*!*", v.Local.sDEVandM)
+			
+			'Install Instruct
+			f.Intrinsic.String.Build("select EMPID from GCG_INS_INSTRB where JOB='{0}' and SUFFIX='{1}' order by TASK", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sInstallInstr)
+			f.Intrinsic.String.Replace(v.Local.sInstallInstr, "#$#", "*!*", v.Local.sInstallInstr)
+			
+			'EMP and Date
+			f.Intrinsic.String.Build("select EMPID, cast(DAY(INSP_DATE) as CHAR(2)) + '-'+ cast(MONTH(INSP_DATE) as CHAR(2)) + '-'+ cast(YEAR(INSP_DATE) as CHAR(4)) as INSP_DATE from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sEMPandD)
+			f.Intrinsic.String.Replace(v.Local.sEMPandD, "#$#", "*!*", v.Local.sEMPandD)
+			
+			'concat
+			f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}*!*{6}", v.Ambient.Now.FormatMM/DD/YYYY, v.Local.sHeader, v.Global.sSerialNumber(v.Local.iCounter), v.global.sQty, v.Local.sDEVandM, v.Local.sInstallInstr, v.Local.sEMPandD, v.Local.sFieldVals)
+			
+			'file names
+			f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11640B.pdf", v.Local.sFile)
+			f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.iCounter, v.Caller.FilesDir, "6552\output\11640B",v.Local.sFileSave)
+			
+			'print
+			Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+			Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+			Function.Automation.PDF.Close("MyPDF2")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+			
+			'Form11922
+			f.Intrinsic.Control.CallSub(LoadForm11922, "argSerial", v.Global.sSerialNumber(v.Local.iCounter))
+			
+			v.Global.bFlagPrinting.Set(True)
+			f.Intrinsic.Control.CallSub(PrintWait)
+			
+		'use default QF
+		f.Intrinsic.Control.Else
+			v.Local.sFields.Set("DATE*!*WO*!*REV*!*ENG*!*BENCH*!*NOTES*!*ITEM_DESC*!*CUSTOMER*!*SERIAL*!*QTY*!*T4DEV*!*T4M*!*T6DEV*!*T6M*!*T7DEV*!*T7M*!*T8DEV*!*T8M*!*T9DEV*!*T9M*!*T10DEV*!*T10M*!*T1EMP*!*T1DATE*!*T2EMP*!*T2DATE*!*T3EMP*!*T3DATE*!*T4EMP*!*T4DATE*!*T5EMP*!*T5DATE*!*T6EMP*!*T6DATE*!*T7EMP*!*T7DATE*!*T8EMP*!*T8DATE*!*T9EMP*!*T9DATE*!*T10EMP*!*T10DATE*!*T11EMP*!*T11DATE*!*T12EMP*!*T12DATE*!*T13EMP*!*T13DATE*!*T14EMP*!*T14DATE*!*T15EMP*!*T15DATE*!*T16EMP*!*T16DATE*!*T17EMP*!*T17DATE*!*T18EMP*!*T18DATE*!*T19EMP*!*T19DATE")
+			
+			'header fields
+			f.Intrinsic.String.Build("select top 1 A.JOB+'-'+A.SUFFIX WO, RTRIM(I2.TEXT_INFO2) REV, A.INSTALL, RTRIM(A.BENCH) BENCH, RTRIM(A.NOTES) NOTES, RTRIM(H.PART)+'/'+ RTRIM(I.DESCRIPTION) ITEM_DESC, C.NAME_CUSTOMER from GCG_INS_HEADERB A left join V_JOB_HEADER H on A.JOB = H.JOB and A.SUFFIX = H.SUFFIX left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where A.JOB='{0}' and A.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sHeader)
+			
+			'SER_MES_DEV and MEASURE
+			f.Intrinsic.String.Build("select RTRIM(SER_MES_DEV), RTRIM(ACTUAL_MEASURE) from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}' and TASKID in ('04', '06', '07', '08', '09', '10') order by TASKID", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sDEVandM)
+			f.Intrinsic.String.Replace(v.Local.sDEVandM, "#$#", "*!*", v.Local.sDEVandM)
+			
+			'EMP and Date
+			f.Intrinsic.String.Build("select EMPID, cast(DAY(INSP_DATE) as CHAR(2)) + '-'+ cast(MONTH(INSP_DATE) as CHAR(2)) + '-'+ cast(YEAR(INSP_DATE) as CHAR(4)) as INSP_DATE from GCG_INS_DETAIL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+			f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sEMPandD)
+			f.Intrinsic.String.Replace(v.Local.sEMPandD, "#$#", "*!*", v.Local.sEMPandD)
+			
+			'concat
+			f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}", v.Ambient.Now.FormatMM/DD/YYYY, v.Local.sHeader, v.Global.sSerialNumber(v.Local.iCounter), v.global.sQty, v.Local.sDEVandM, v.Local.sEMPandD, v.Local.sFieldVals)
+			
+			'file names
+			f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\DEFAULT11640.pdf", v.Local.sFile)
+			f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.iCounter, v.Caller.FilesDir, "6552\output\DEFAULT11640",v.Local.sFileSave)
+			
+			'print
+			Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+			Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+			Function.Automation.PDF.Close("MyPDF2")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+			
+			'Form11921
+			f.Intrinsic.Control.CallSub(LoadForm11921, "argSerial", v.Global.sSerialNumber(v.Local.iCounter))
+			
+			v.Global.bFlagPrinting.Set(True)
+			f.Intrinsic.Control.CallSub(PrintWait)
+			
+		f.Intrinsic.Control.EndIf
+		
+		'close connection
+		f.ODBC.Connection!Con.Close
+	
+	f.Intrinsic.Control.Next(v.Local.iCounter)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint_Click.End
+
+Program.Sub.LoadForm11921.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sPartDesc.Declare(String)
+	v.Local.sDrawing.Declare(String)
+	v.Local.sPart.Declare(String)
+	v.Local.sSerial.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sPic.Declare(String)
+	
+	f.Intrinsic.String.Build("select RTRIM(I2.TEXT_INFO2) REV, RTRIM(H.PART), RTRIM(I.DESCRIPTION) ITEM_DESC from V_JOB_HEADER H left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where H.JOB='{0}' and H.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*", v.Local.sRet)
+		v.Local.sDrawing.Set(v.Local.sRet(0))
+		v.Local.sPart.Set(v.Local.sRet(1))
+		v.Local.sPartDesc.Set(v.Local.sRet(2))
+		v.Local.sSerial.Set(v.Args.argSerial)
+		
+		gui.Form11921.lblDrawing.Caption(v.Local.sDrawing)
+		gui.Form11921.lblPart.Caption(v.Local.sPart)
+		gui.Form11921.lblPartDesc.Caption(v.Local.sPartDesc)
+		gui.Form11921.lblSerial.Caption(v.Local.sSerial)
+		gui.Form11921.txtSensor21.Text("")
+		
+		f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11921pic.JPG", v.Local.sPic)
+		gui.Form11921.pic1.Picture(v.Local.sPic)
+		
+		gui.Form11921..Visible(True)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadForm11921.End
+
+Program.Sub.LoadForm11922.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sPartDesc.Declare(String)
+	v.Local.sDrawing.Declare(String)
+	v.Local.sPart.Declare(String)
+	v.Local.sSerial.Declare(String)
+	v.Local.sRet.Declare(String)
+	v.Local.sPic.Declare(String)
+	
+	f.Intrinsic.String.Build("select RTRIM(I2.TEXT_INFO2) REV, RTRIM(H.PART), RTRIM(I.DESCRIPTION) ITEM_DESC from V_JOB_HEADER H left join V_INVENTORY_MSTR I on RTRIM(I.PART) = RTRIM(H.PART) left join V_INVENTORY_MST2 I2 on RTRIM(I2.PART) = RTRIM(H.PART) left join V_CUSTOMER_MASTER C on C.CUSTOMER = H.CUSTOMER where H.JOB='{0}' and H.SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	
+	f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sSQL, v.Local.sRet)
+	
+	f.Intrinsic.Control.If(v.Local.sRet,!=,"")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*", v.Local.sRet)
+		v.Local.sDrawing.Set(v.Local.sRet(0))
+		v.Local.sPart.Set(v.Local.sRet(1))
+		v.Local.sPartDesc.Set(v.Local.sRet(2))
+		v.Local.sSerial.Set(v.Args.argSerial)
+		
+		gui.Form11922.lblDrawing.Caption(v.Local.sDrawing)
+		gui.Form11922.lblPart.Caption(v.Local.sPart)
+		gui.Form11922.lblPartDesc.Caption(v.Local.sPartDesc)
+		gui.Form11922.lblSerial.Caption(v.Local.sSerial)
+		
+		gui.Form11922.txtSensor22.Text("")
+		
+		f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11922pic.JPG", v.Local.sPic)
+		gui.Form11922.pic1.Picture(v.Local.sPic)
+		
+		gui.Form11922..Visible(True)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadForm11922.End
+
+program.Sub.PrintWait.Start
+f.Intrinsic.Control.Try
+	F.Intrinsic.Control.DoUntil(V.Global.bFlagPrinting,=,False)
+	F.Intrinsic.UI.Sleep(1)
+F.Intrinsic.Control.Loop
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+program.Sub.PrintWait.End
+
+Program.Sub.Serialize.Start
+f.Intrinsic.Control.Try
+	v.Local.sSerialize.Declare(String)
+	
+	gui.Form11640.GsGcInspDetail.Serialize("gvInspDetail", v.Local.sSerialize)
+	f.Global.Registry.AddValue(v.Caller.User, v.Caller.CompanyCode, "gvInspDetail", 6552, 1000, False, "Serialize", False, 0, -999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+f.Intrinsic.Control.Try
+	v.Local.sSerialize.Declare(String)
+	
+	f.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvInspDetail",6552,1000,6,"Default",V.Local.sSerialize)
+	
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		gui.Form11640.GsGcInspDetail.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.SerializeDefault.Start
+f.Intrinsic.Control.Try
+	v.Local.sSerialize.Declare(String)
+	
+	gui.FormDefault.GsGcInspDetail.Serialize("gvInspDetail", v.Local.sSerialize)
+	f.Global.Registry.AddValue(v.Caller.User, v.Caller.CompanyCode, "gvInspDetail", 6552, 1001, False, "Serialize", False, 0, -999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.SerializeDefault.End
+
+Program.Sub.DeserializeDefault.Start
+f.Intrinsic.Control.Try
+	v.Local.sSerialize.Declare(String)
+	
+	f.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvInspDetail",6552,1001,6,"Default",V.Local.sSerialize)
+	
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		gui.Form11640.FormDefault.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.DeserializeDefault.End
+
+Program.Sub.cmdApply_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.iCounter.Declare(String)
+	v.Local.sSelected.Declare(String)
+	
+	v.Global.sSerialNumber.Set("")
+	
+	f.Intrinsic.Control.CallSub(FormSerial_UnLoad)
+	f.Data.DataView.Create("dtSerial", "dvSelectedSerial", 22 ,"BSELECT=TRUE", "")
+	
+	f.Intrinsic.Control.If(v.DataTable.dtSelectedCustomer.Exists)
+		f.Data.Datatable.Close("dtSelectedSerial")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataView.ToDataTable("dtSerial", "dvSelectedSerial", "dtSelectedSerial")
+	f.Data.DataView.Close("dtSerial", "dvSelectedSerial")
+	
+	f.ODBC.Connection!con.OpenCompanyConnection
+	
+	'remove old
+	f.Intrinsic.String.Build("delete from GCG_APPLY_SERIAL where JOB='{0}' and SUFFIX='{1}'", v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+	
+	'insert new
+	f.Intrinsic.Control.If(v.DataTable.dtSelectedSerial.RowCount,>,0)
+		
+		f.Intrinsic.Control.For(v.Local.iCounter, 0, v.DataTable.dtSelectedSerial.RowCount--, 1)
+			f.Intrinsic.String.Build("insert into GCG_APPLY_SERIAL (JOB, SUFFIX, SERIAL_NUMBER, APPLIED) values('{0}','{1}','{2}',1)", v.Global.sJob, v.Global.sSuffix, v.DataTable.dtSelectedSerial(v.Local.iCounter).SERIAL!FieldValTrim, v.Local.sSQL)
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+			f.Intrinsic.Control.If(v.Local.iCounter,=,0)
+				v.Local.sSelected.Set(v.DataTable.dtSelectedSerial(v.Local.iCounter).SERIAL!FieldValTrim)
+			f.Intrinsic.Control.Else
+				f.Intrinsic.String.Build("{0},{1}", v.Local.sSelected, v.DataTable.dtSelectedSerial(v.Local.iCounter).SERIAL!FieldValTrim, v.Local.sSelected)
+			f.Intrinsic.Control.EndIf
+		f.Intrinsic.Control.Next(v.Local.iCounter)
+	
+	f.Intrinsic.Control.EndIf
+	
+	f.Data.Datatable.Close("dtSelectedSerial")
+	
+	v.Global.sSerialNumber.Set(v.Local.sSelected)
+	
+	f.Intrinsic.Control.CallSub(LoadSerial)
+	
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdApply_Click.End
+
+Program.Sub.chkSelectAll_Change.Start
+f.Intrinsic.Control.Try
+	v.Local.bCheck.Declare(Boolean)
+	v.Local.bCheck.Set(v.Screen.FormSerial!chkSelectAll.Value)
+	
+	f.Intrinsic.Control.If(v.Local.bCheck,=,True)
+		f.Data.Datatable.SetValue("dtSerial", -1, "BSELECT", True)
+		f.Intrinsic.Control.CallSub(PopulateSerialGrid)
+	f.Intrinsic.Control.else
+		f.Data.Datatable.SetValue("dtSerial", -1, "BSELECT", False)
+		f.Intrinsic.Control.CallSub(PopulateSerialGrid)
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.chkSelectAll_Change.End
+
+Program.Sub.txtBench_Change.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sBench.Declare(String)
+	
+	f.Intrinsic.Control.If(v.Global.bFlagLoadData,=,True)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+		v.Local.sBench.Set(v.Screen.Form11640!txtBench.Text)
+	f.Intrinsic.Control.Else
+		v.Local.sBench.Set(v.Screen.FormDefault!txtBench.Text)
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	
+	f.Intrinsic.String.Build("update GCG_INS_HEADERB set Bench='{0}' where JOB='{1}' and SUFFIX='{2}'", v.Local.sBench, v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+	
+	f.ODBC.Connection!Con.Close
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.txtBench_Change.End
+
+Program.Sub.txtNotes_Change.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sNotes.Declare(String)
+	
+	f.Intrinsic.Control.If(v.Global.bFlagLoadData,=,True)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+		v.Local.sNotes.Set(v.Screen.Form11640!txtNotes.Text)
+		f.ODBC.Connection!Con.OpenCompanyConnection
+		f.Intrinsic.String.Build("update GCG_INS_HEADERB set NOTES='{0}' where JOB='{1}' and SUFFIX='{2}'", v.Local.sNotes, v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+		f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+		f.ODBC.Connection!Con.Close
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.txtNotes_Change.End
+
+Program.Sub.txtSeeEng_Change.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sEng.Declare(String)
+	
+	f.Intrinsic.Control.If(v.Global.bFlagLoadData,=,True)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+		v.Local.sEng.Set(v.Screen.Form11640!txtSeeEng.Text)
+	f.Intrinsic.Control.Else
+		v.Local.sEng.Set(v.Screen.FormDefault!txtSeeEng.Text)
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	
+	f.Intrinsic.String.Build("update GCG_INS_HEADERB set INSTALL='{0}' where JOB='{1}' and SUFFIX='{2}'", v.Local.sEng, v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+	
+	f.ODBC.Connection!Con.Close
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.txtSeeEng_Change.End
+
+Program.Sub.dtpDate_Change.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sDate.Declare(String)
+	
+	f.Intrinsic.Control.If(v.Global.bFlagLoadData,=,True)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Global.bUseFormB,=,True)
+		f.Intrinsic.String.Format(v.Screen.Form11640!dtpDate.Value, "YYYY-MM-DD", v.Local.sDate)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Format(v.Screen.FormDefault!dtpDate.Value, "YYYY-MM-DD", v.Local.sDate)
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!Con.OpenCompanyConnection
+	
+	f.Intrinsic.String.Build("update GCG_INS_HEADERB set START_DATE='{0}' where JOB='{1}' and SUFFIX='{2}'", v.Local.sDate, v.Global.sJob, v.Global.sSuffix, v.Local.sSQL)
+	f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+	
+	f.ODBC.Connection!Con.Close
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.dtpDate_Change.End
+Program.Sub.GsgcInstruct_CellValueChanged.Start
+f.Intrinsic.Control.Try
+	v.Local.sSQL.Declare(String)
+	v.Local.sTask.Declare(String)
+	v.Local.sEmpID.Declare(String)
+	
+	f.Intrinsic.Control.If(v.Args.column, =, "EMPID")
+		gui.Form11640.GsgcInstruct.GetCellValueByColumnName("gvInstruct", "TASK", v.Args.RowIndex, v.Local.sTask)
+		gui.Form11640.GsgcInstruct.GetCellValueByColumnName("gvInstruct", "EMPID", v.Args.RowIndex, v.Local.sEmpID)
+		
+		f.Intrinsic.String.Build("update GCG_INS_INSTRB set EMPID='{0}' where JOB='{1}' and SUFFIX = '{2}' and TASK='{3}'", v.Local.sEmpID, v.Global.sJob, v.Global.sSuffix, v.Local.sTask.PSQLFriendly, v.Local.sSQL)
+		
+		f.ODBC.Connection!Con.OpenCompanyConnection
+			f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+		f.ODBC.Connection!Con.Close
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.GsgcInstruct_CellValueChanged.End
+
+Program.Sub.Form11921_UnLoad.Start
+gui.Form11921..Visible(False)
+v.Global.bFlagPrinting.Set(False)
+Program.Sub.Form11921_UnLoad.End
+
+Program.Sub.Form11922_UnLoad.Start
+v.Global.bFlagPrinting.Set(False)
+gui.Form11922..Visible(False)
+Program.Sub.Form11922_UnLoad.End
+
+Program.Sub.cmdPrint11921_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sSensor.Declare(String)
+	v.Local.sPartDesc.Declare(String)
+	v.Local.sDrawing.Declare(String)
+	v.Local.sPart.Declare(String)
+	v.Local.sSerial.Declare(String)
+	v.Local.sFields.Declare(String)
+	v.Local.sFieldVals.Declare(String)
+	v.Local.sFile.Declare(String)
+	v.Local.sFileSave.Declare(String)
+	v.Local.iCounter.Declare(Long)
+	
+	v.Local.sSQL.Declare(String)
+	
+	'gather info
+	v.Local.sSensor.Set(v.Screen.Form11921!txtSensor21.Text)
+	v.Local.sPartDesc.Set(v.Screen.Form11921!lblPartDesc.Caption)
+	v.Local.sDrawing.Set(v.Screen.Form11921!lblDrawing.Caption)
+	v.Local.sPart.Set(v.Screen.Form11921!lblPart.Caption)
+	v.Local.sSerial.Set(v.Screen.Form11921!lblSerial.Caption)
+	v.Local.iCounter.Set(0)
+	
+	f.Intrinsic.Control.If(v.Local.sSensor,=,"")
+		f.Intrinsic.UI.Msgbox("Please enter Sensor Serial Number")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'update DB
+	f.Intrinsic.String.Build("update GCG_APPLY_SERIAL set SENSOR='{0}' where JOB='{1}' and SUFFIX='{2}' and RTRIM(SERIAL_NUMBER) ='{3}'", v.Local.sSensor, v.Global.sJob, v.Global.sSuffix, v.Local.sSerial, v.Local.sSQL)
+	f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+	
+	v.Local.sFields.Set("CYL_DESC*!*CYL_LHD*!*CYL_OEM*!*CYL_SERIAL*!*SEN_SERIAL")
+	f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}", v.Local.sPartDesc, v.Local.sDrawing, v.Local.sPart, v.Local.sSerial, v.Local.sSensor, v.Local.sFieldVals)
+	
+	'file names
+	f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11921.pdf", v.Local.sFile)
+	f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.iCounter, v.Caller.FilesDir, "6552\output\11921",v.Local.sFileSave)
+	
+	'print
+	Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+	Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+	Function.Automation.PDF.Close("MyPDF2")
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+	
+	f.Intrinsic.Control.CallSub(Form11921_UnLoad)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint11921_Click.End
+
+Program.Sub.cmdPrint22_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sSensor.Declare(String)
+	v.Local.sPartDesc.Declare(String)
+	v.Local.sDrawing.Declare(String)
+	v.Local.sPart.Declare(String)
+	v.Local.sSerial.Declare(String)
+	v.Local.sFields.Declare(String)
+	v.Local.sFieldVals.Declare(String)
+	v.Local.sFile.Declare(String)
+	v.Local.sFileSave.Declare(String)
+	v.Local.iCounter.Declare(Long)
+	v.Local.sSQL.Declare(String)
+	
+	'gather info
+	v.Local.sSensor.Set(v.Screen.Form11922!txtSensor22.Text)
+	v.Local.sPartDesc.Set(v.Screen.Form11922!lblPartDesc.Caption)
+	v.Local.sDrawing.Set(v.Screen.Form11922!lblDrawing.Caption)
+	v.Local.sPart.Set(v.Screen.Form11922!lblPart.Caption)
+	v.Local.sSerial.Set(v.Screen.Form11922!lblSerial.Caption)
+	v.Local.iCounter.Set(0)
+	
+	f.Intrinsic.Control.If(v.Local.sSensor,=,"")
+		f.Intrinsic.UI.Msgbox("Please enter Sensor Serial Number")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'update DB
+	f.Intrinsic.String.Build("update GCG_APPLY_SERIAL set SENSOR='{0}' where JOB='{1}' and SUFFIX='{2}' and RTRIM(SERIAL_NUMBER) ='{3}'", v.Local.sSensor, v.Global.sJob, v.Global.sSuffix, v.Local.sSerial, v.Local.sSQL)
+	f.ODBC.Connection!Con.Execute(v.Local.sSQL)
+	
+	v.Local.sFields.Set("CYL_DESC*!*CYL_LHD*!*CYL_OEM*!*CYL_SERIAL*!*SEN_SERIAL")
+	f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}", v.Local.sPartDesc, v.Local.sDrawing, v.Local.sPart, v.Local.sSerial, v.Local.sSensor, v.Local.sFieldVals)
+	
+	'file names
+	f.Intrinsic.String.Build("{0}\{1}", v.Caller.FilesDir, "6552\Temp\11922.pdf", v.Local.sFile)
+	f.Intrinsic.String.Build("{3}\{4}_{0}_{1}_{2}.pdf", v.Caller.User, v.Ambient.Now.FormatYYYYMMDD-HHNNSS, v.Local.iCounter, v.Caller.FilesDir, "6552\output\11922",v.Local.sFileSave)
+	
+	'print
+	Function.Automation.PDF.Open("MyPDF2",v.Local.sFile)
+	Function.Automation.PDF.SetFormFields("MyPDF2", v.Local.sFileSave, v.Local.sFields, v.Local.sFieldVals, True)
+	Function.Automation.PDF.Close("MyPDF2")
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileSave,"","",1)
+	
+	f.Intrinsic.Control.CallSub(Form11922_UnLoad)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(Catching)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint22_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$nle$}$20220102164756705$}$kjzCRYkA6UEoRnCwndYnRavCwN7ubP9bZa3wpl4Fx0EYa71pdSYG3srqG3OVqKK2
+Program.Sub.Comments.End
